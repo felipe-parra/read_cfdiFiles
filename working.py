@@ -3,7 +3,6 @@
 # -*- coding:utf-8 -*-
 
 
-
 import time
 
 import os
@@ -14,7 +13,7 @@ import sqlite3
 
 import glob
 
-import pandas as pd
+# import pandas as pd
 
 from xml.dom import minidom
 
@@ -287,9 +286,14 @@ def guardando_en_bd_NC(folio,importe,f_exp,f_tim,uuid,uuid_relacionado,rfc_e,rfc
 
 
 if __name__ == '__main__':
-
-    archivos = glob.glob("{}*.xml".format("../../../../Downloads/"))
-
+    directorio = "Downloads/"
+    directory = directorio
+    retract = "../"
+    # archivos = glob.glob("{}*.xml".format("../../../../Downloads/"))
+    while(os.path.exists(directory) != True):
+        directory = retract + directory
+    
+    archivos = glob.glob("{}*.xml".format(directory))
     contador = 0
 
     for i in archivos:
